@@ -1,0 +1,72 @@
+# Production configuration for serious training
+environment:
+  vocab_size: 1000
+  max_sequence_length: 50
+  target_word: "beautiful"
+  target_word_index: null
+  reward_type: "semantic"
+  length_penalty: 0.05
+  early_stop_reward: 0.0
+  invalid_action_penalty: -0.1
+  use_advanced_env: true
+  reward_weights:
+    target_completion: 1.0
+    length_efficiency: 0.2
+    diversity: 0.1
+    grammar: 0.3
+
+agent:
+  algorithm: "ppo"
+  learning_rate: 0.0001
+  batch_size: 128
+  buffer_size: 1000000
+  gamma: 0.99
+  tau: 0.005
+  target_update_interval: 1000
+  n_steps: 4096
+  n_epochs: 10
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  target_entropy: null
+  learning_starts: 10000
+  exploration_fraction: 0.1
+  exploration_initial_eps: 1.0
+  exploration_final_eps: 0.05
+  hidden_size: 256
+  num_layers: 3
+  dropout: 0.1
+  use_attention: true
+
+training:
+  total_timesteps: 1000000
+  eval_frequency: 50000
+  eval_episodes: 20
+  save_frequency: 100000
+  log_frequency: 5000
+  early_stopping: true
+  patience: 20
+  min_improvement: 0.01
+  save_best_model: true
+  save_replay_buffer: true
+
+logging:
+  log_level: "INFO"
+  log_to_file: true
+  log_file: "logs/training.log"
+  use_tensorboard: true
+  tensorboard_log_dir: "tensorboard_logs"
+  use_wandb: true
+  wandb_project: "rl-text-generation-production"
+  wandb_entity: null
+  plot_frequency: 5000
+  save_plots: true
+  plot_dir: "plots"
+
+# General settings
+seed: 42
+device: "cuda"
+num_envs: 4
+verbose: 1

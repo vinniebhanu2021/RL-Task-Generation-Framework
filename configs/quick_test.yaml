@@ -1,0 +1,72 @@
+# Quick test configuration for rapid experimentation
+environment:
+  vocab_size: 20
+  max_sequence_length: 10
+  target_word: "love"
+  target_word_index: null
+  reward_type: "binary"
+  length_penalty: 0.1
+  early_stop_reward: 0.0
+  invalid_action_penalty: -0.1
+  use_advanced_env: false
+  reward_weights:
+    target_completion: 1.0
+    length_efficiency: 0.1
+    diversity: 0.05
+    grammar: 0.2
+
+agent:
+  algorithm: "ppo"
+  learning_rate: 0.001
+  batch_size: 32
+  buffer_size: 10000
+  gamma: 0.99
+  tau: 0.005
+  target_update_interval: 1000
+  n_steps: 512
+  n_epochs: 5
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  target_entropy: null
+  learning_starts: 100
+  exploration_fraction: 0.1
+  exploration_initial_eps: 1.0
+  exploration_final_eps: 0.05
+  hidden_size: 64
+  num_layers: 1
+  dropout: 0.1
+  use_attention: false
+
+training:
+  total_timesteps: 10000
+  eval_frequency: 2000
+  eval_episodes: 5
+  save_frequency: 5000
+  log_frequency: 500
+  early_stopping: false
+  patience: 5
+  min_improvement: 0.01
+  save_best_model: true
+  save_replay_buffer: false
+
+logging:
+  log_level: "INFO"
+  log_to_file: true
+  log_file: "logs/training.log"
+  use_tensorboard: true
+  tensorboard_log_dir: "tensorboard_logs"
+  use_wandb: false
+  wandb_project: "rl-text-generation-quick-test"
+  wandb_entity: null
+  plot_frequency: 500
+  save_plots: true
+  plot_dir: "plots"
+
+# General settings
+seed: 42
+device: "auto"
+num_envs: 1
+verbose: 1
