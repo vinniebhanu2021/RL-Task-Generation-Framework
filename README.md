@@ -51,7 +51,7 @@ A comprehensive reinforcement learning framework for text generation tasks, feat
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/kryptologyst/RL-Task-Generation.git
+   git clone https://https://github.com/vinniebhanu2021/RL-Task-Generation-Framework.git
    cd RL-Text-Generation-Project
    ```
 
