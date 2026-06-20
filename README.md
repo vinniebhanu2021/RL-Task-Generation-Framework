@@ -1,4 +1,4 @@
-# RL Text Generation Project
+# RL Task Generation
 
 A comprehensive reinforcement learning framework for text generation tasks, featuring state-of-the-art algorithms, proper logging, visualization, and configuration management.
 
@@ -17,7 +17,7 @@ A comprehensive reinforcement learning framework for text generation tasks, feat
 ## 📁 Project Structure
 
 ```
-0275_RL_for_text_generation/
+0275_RL_for_task_generation/
 ├── src/
 │   ├── agents/           # RL algorithm implementations
 │   │   └── text_ppo_agent.py
@@ -51,7 +51,7 @@ A comprehensive reinforcement learning framework for text generation tasks, feat
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/kryptologyst/RL-Text-Generation-Project.git
+   git clone https://github.com/kryptologyst/RL-Task-Generation.git
    cd RL-Text-Generation-Project
    ```
 
@@ -218,7 +218,7 @@ logging:
 Create custom text generation environments:
 
 ```python
-from src.envs.text_generation_env import TextGenConfig, AdvancedTextGenEnv
+from src.envs.task_generation_env import TextGenConfig, AdvancedTextGenEnv
 
 # Custom configuration
 config = TextGenConfig(
@@ -442,23 +442,9 @@ flake8 src/ tests/
 mypy src/
 ```
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
 
-- OpenAI Gym/Gymnasium for the RL environment framework
-- Stable Baselines3 for RL algorithm implementations
-- PyTorch for deep learning framework
-- The RL research community for algorithms and techniques
-
-## Related Projects
-
-- [Stable Baselines3](https://github.com/DLR-RM/stable-baselines3)
-- [Gymnasium](https://github.com/Farama-Foundation/Gymnasium)
-- [RLHF](https://github.com/openai/summarize-from-feedback)
-- [Text Generation with RL](https://github.com/huggingface/transformers)
  
  
-# RL-Text-Generation-Project
+
